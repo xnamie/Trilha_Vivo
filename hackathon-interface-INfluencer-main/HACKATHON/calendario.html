@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário · Em construção</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .build-wrap{max-width:920px;margin:26px auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:34px;box-shadow:var(--shadow-sm)}
+  .build-kicker{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--vivo-magenta)}
+  .build-title{margin-top:8px;font-size:30px;color:var(--vivo-purple-dark)}
+  .build-desc{margin-top:10px;font-size:14px;line-height:1.6;color:var(--ink-soft)}
+  .preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
+  .preview-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:14px}
+  .preview-item span{font-size:11px;color:var(--vivo-magenta);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="main" style="min-height:100vh;">
+  <header class="topbar">
+    <a class="btn btn-secondary" href="index.html">Voltar ao Dashboard</a>
+    <a class="btn btn-secondary" href="gestao-estagiarios.html">Gestão dos Estagiários</a>
+  </header>
+  <main class="content">
+    <section class="build-wrap">
+      <span class="build-kicker">Plataforma de aprendizado</span>
+      <h1 class="build-title">Calendário</h1>
+      <p class="build-desc">Estamos montando o módulo de calendário com materiais curados para o Programa Influencer Vivo. Aqui você terá agenda de check-ins, lembretes de trilha e compromissos colaborativos com estagiários e Influencers.</p>
+      <div class="preview-grid">
+        <article class="preview-item"><span>Em breve</span><h3>Agenda de check-ins</h3><p class="build-desc">Organização de encontros por fase da trilha e prioridade de acompanhamento.</p></article>
+        <article class="preview-item"><span>Em breve</span><h3>Lembretes de feedback</h3><p class="build-desc">Alertas para conversas 1:1, entregas pendentes e checkpoints de desenvolvimento.</p></article>
+        <article class="preview-item"><span>Em breve</span><h3>Visão colaborativa</h3><p class="build-desc">Calendário compartilhado com marcos importantes da jornada dos estagiários.</p></article>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

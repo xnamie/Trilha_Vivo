@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Trilha · Programa Influencer Vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Símbolos SVG reutilizáveis (ícones MarcaVivo) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="vivinho" viewBox="0 0 64 64">
+      <circle cx="32" cy="12" r="10" fill="currentColor"/>
+      <rect x="24" y="20" width="16" height="20" rx="8" fill="currentColor"/>
+      <rect x="6" y="24" width="30" height="11" rx="5.5" transform="rotate(12 6 24)" fill="currentColor"/>
+      <rect x="28" y="18" width="30" height="11" rx="5.5" transform="rotate(-12 28 18)" fill="currentColor"/>
+      <rect x="21" y="34" width="12" height="28" rx="6" transform="rotate(39 21 34)" fill="currentColor"/>
+      <rect x="31" y="34" width="12" height="28" rx="6" transform="rotate(-39 31 34)" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5 12 3l9 7.5M5 9.5V21h5v-6h4v6h5V9.5"/></symbol>
+    <symbol id="i-trail" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v14a2 2 0 0 0 2 2h14M4 4h9M4 9h6M4 14h9"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 19v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm13 10v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8 8 0 0 1-11.6 7.1L3 21l2.4-6.4A8 8 0 1 1 21 11.5z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path stroke-linecap="round" d="M3 9h18M8 2.5v4M16 2.5v4"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5zM19 3v16"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18-2.5-2.7-2.5-15.3 0-18z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="9" r="6"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 14.5 8 22l4-2 4 2-1-7.5"/></symbol>
+    <symbol id="i-head" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 13a8 8 0 0 1 16 0v4a2 2 0 0 1-2 2h-1v-6h3M4 13v4a2 2 0 0 0 2 2h1v-6H4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<div class="app">
+
+  <!-- ============== SIDEBAR ============== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="vivinho" style="color:var(--vivo-purple)"><use href="#vivinho"/></svg>
+      <div class="brand-txt">
+        <span class="wordmark">vivo</span>
+        <span class="brand-sub">Influencer</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav-item" href="index.html"><svg><use href="#i-home"/></svg> Dashboard Inicial</a>
+      <a class="nav-item" href="gestao-estagiarios.html"><svg><use href="#i-users"/></svg> Gestão dos Estagiários</a>
+      <a class="nav-item" href="feedbacks.html"><svg><use href="#i-chat"/></svg> Feedback</a>
+      <a class="nav-item" href="calendario.html"><svg><use href="#i-calendar"/></svg> Calendário</a>
+      <a class="nav-item" href="badges.html"><svg><use href="#i-medal"/></svg> Minhas Conquistas</a>
+      <a class="nav-item" href="plano-desenvolvimento.html"><svg><use href="#i-target"/></svg> Plano de Desenvolvimento</a>
+      <a class="nav-item" href="biblioteca-conteudo.html"><svg><use href="#i-book"/></svg> Biblioteca de Conteúdo</a>
+      <a class="nav-item" href="comunidade.html"><svg><use href="#i-globe"/></svg> Comunidade</a>
+    </nav>
+
+    <div class="nav-divider"></div>
+
+    <div class="level-card">
+      <div class="level-top">
+        <div class="level-medal"><svg><use href="#i-medal"/></svg></div>
+        <div>
+          <div class="lvl-label">Nível Influencer</div>
+          <div class="lvl-name">Platina</div>
+          <div class="level-points">2.450 pontos</div>
+        </div>
+      </div>
+      <div class="level-bar"><span style="width:72%"></span></div>
+    </div>
+
+    <div class="side-spacer"></div>
+
+    <div class="help-card">
+      <div class="help-ic"><svg><use href="#i-head"/></svg></div>
+      <div>
+        <strong>Precisa de ajuda?</strong>
+        <span>Fale com o time do programa</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============== MAIN ============== -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" aria-label="Notificações">
+        <svg><use href="#i-bell"/></svg>
+        <span class="dot-badge">3</span>
+      </button>
+      <!-- BOTÃO TOGGLE INFLUENCER ↔ ESTAGIÁRIO -->
+      <button id="roleToggleBtn" class="icon-btn role-toggle-btn" aria-label="Alternar perfil" title="Clique para alternar entre Influencer e Estagiário">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+        </svg>
+        <span class="role-label" style="font-size:11px;margin-left:4px;">Influencer</span>
+      </button>
+      <div class="user-chip">
+        <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avM)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">M</text></svg>
+        <div class="u-meta">
+          <div class="u-name">Olá, Mariana!</div>
+          <div class="u-role">Influencer | Vivo</div>
+        </div>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="trail-head">
+        <div class="kicker">Trilha de capacitação</div>
+        <h2>Sua trilha de aprendizagem</h2>
+        <p>Cinco fases inspiradas nas Paixões Púrpura da Vivo. Complete as missões, anexe suas entregas e evolua até se tornar uma referência de impacto.</p>
+        <div style="margin-top:14px;">
+          <button class="btn btn-secondary" id="resetTrailBtn">Resetar trilha</button>
+        </div>
+      </div>
+
+      <div class="trail" id="trail">
+        <svg class="path-svg" id="pathSvg" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="trailGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#660099"/>
+              <stop offset="55%" stop-color="#BC4AFF"/>
+              <stop offset="100%" stop-color="#FF9900"/>
+            </linearGradient>
+          </defs>
+          <path class="path-line-bg" id="pathBg" d=""></path>
+          <path class="path-line-fg" id="pathFg" d=""></path>
+        </svg>
+        <!-- Nós injetados via JS -->
+      </div>
+
+      <div class="finish" id="finishNode">
+        <div class="badge" id="finishBadge">🏁</div>
+        <h3>Certificação Vivo desbloqueada</h3>
+        <p>Complete as 5 fases para liberar seu certificado e o selo de embaixador da marca.</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Modal de etapa -->
+<div class="overlay" id="overlay">
+  <div class="panel" id="panel">
+    <button class="close-btn" id="closeBtn">✕</button>
+    <div class="panel-icon" id="panelIcon">📡</div>
+    <div class="eyebrow-mini" id="panelEyebrow">Etapa 1</div>
+    <h3 id="panelTitle">Título do desafio</h3>
+    <p class="desc" id="panelDesc">Descrição do desafio.</p>
+    <div class="meta-row">
+      <div><strong id="panelDuration">10 min</strong>Duração</div>
+      <div><strong id="panelFormat">Vídeo + quiz</strong>Formato</div>
+      <div><strong id="panelXp">+50 XP</strong>Recompensa</div>
+    </div>
+    <div class="cta-row">
+      <button class="btn btn-secondary" id="cancelBtn">Fechar</button>
+      <button class="btn btn-secondary" id="deliverBtn">Entregar</button>
+      <button class="btn btn-primary" id="completeBtn">Marcar como concluído</button>
+    </div>
+    <input type="file" id="deliverInput" style="display:none" accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.txt,.zip">
+    <p class="delivery-hint" id="deliveryInfo">Envie um arquivo em Entregar para concluir a etapa.</p>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

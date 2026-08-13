@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conquistas dos Estagiários · Programa Influencer Vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ach-wrap{max-width:1080px;margin:26px auto;display:grid;gap:16px}
+  .ach-head{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:26px;box-shadow:var(--shadow-sm)}
+  .ach-kicker{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--vivo-magenta)}
+  .ach-title{margin-top:8px;font-size:30px;color:var(--vivo-purple-dark)}
+  .ach-desc{margin-top:8px;color:var(--ink-soft);line-height:1.6}
+  .ach-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px}
+  .ach-stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:14px;text-align:center}
+  .ach-stat strong{display:block;color:var(--vivo-purple-dark);font-size:24px}
+  .intern-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-sm)}
+  .intern-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  .intern-sub{font-size:12px;color:var(--ink-soft);margin-top:6px}
+  .progress-chip{font-size:12px;font-weight:700;background:rgba(102,0,153,.1);color:var(--vivo-purple);padding:6px 10px;border-radius:999px}
+  .bar{height:8px;background:var(--paper-deep);border-radius:999px;overflow:hidden;margin-top:12px}
+  .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--vivo-purple),var(--vivo-purple-light))}
+  .badge-grid{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+  .badge-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:12px;position:relative;min-height:120px}
+  .badge-item.locked{opacity:.45;filter:grayscale(1)}
+  .badge-phase{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--vivo-magenta);font-weight:600}
+  .badge-icon{font-size:28px;margin-top:4px}
+  .badge-name{font-size:13px;font-weight:700;margin-top:6px;color:var(--ink)}
+  .badge-note{font-size:11px;color:var(--ink-soft);margin-top:4px;line-height:1.4}
+  .badge-ok{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--vivo-green);color:#fff;font-size:11px;font-weight:700}
+  .badge-item.locked .badge-ok{display:none}
+  .log-list{margin-top:10px;display:grid;gap:8px}
+  .log-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:10px 12px;font-size:12px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<div class="main" style="min-height:100vh;">
+  <header class="topbar">
+    <a class="btn btn-secondary" href="index.html">Voltar ao Dashboard</a>
+    <a class="btn btn-secondary" href="gestao-estagiarios.html">Gestão dos Estagiários</a>
+  </header>
+  <main class="content">
+    <section class="ach-wrap">
+      <div class="ach-head">
+        <span class="ach-kicker">Conquistas por progresso</span>
+        <h1 class="ach-title">Badges dos Estagiários</h1>
+        <p class="ach-desc">Acompanhamento das conquistas de cada estagiário com base na evolução da trilha das 5 Paixões Púrpura da Vivo.</p>
+        <div class="ach-stats" id="globalStats"></div>
+      </div>
+
+      <div id="internsAchievements"></div>
+
+      <div class="intern-card">
+        <h3 style="color:var(--vivo-purple-dark)">Registro de conquistas recentes</h3>
+        <div class="log-list" id="achievementLog"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+(function initInternBadges(){
+  const influencerId = localStorage.getItem('vivo_user_id') || 'u-001';
+  const interns = (typeof getInternsForInfluencer === 'function') ? getInternsForInfluencer(influencerId) : [];
+  const stages = Array.isArray(TRILHA_STAGES) ? TRILHA_STAGES : [];
+
+  const wrap = document.getElementById('internsAchievements');
+  const stats = document.getElementById('globalStats');
+  const log = document.getElementById('achievementLog');
+
+  function progressToCompleted(progressPct){
+    const safe = Math.max(0, Math.min(100, Number(progressPct || 0)));
+    return Math.floor((safe / 100) * stages.length);
+  }
+
+  const totals = {
+    interns: interns.length,
+    unlocked: 0,
+    possible: interns.length * stages.length,
+    avg: interns.length ? Math.round(interns.reduce((s, i) => s + Number(i.progress || 0), 0) / interns.length) : 0
+  };
+
+  if (!interns.length || !stages.length) {
+    wrap.innerHTML = '<div class="intern-card"><p style="color:var(--ink-soft)">Sem dados de estagiários ou fases da trilha para exibir conquistas.</p></div>';
+    stats.innerHTML = '';
+    log.innerHTML = '<div class="log-item">Sem registros disponíveis.</div>';
+    return;
+  }
+
+  wrap.innerHTML = interns.map(intern => {
+    const completed = progressToCompleted(intern.progress);
+    const points = completed * 100;
+    totals.unlocked += completed;
+
+    const badgeCards = stages.map((stage, index) => {
+      const unlocked = index < completed;
+      const phaseName = stage.eyebrow || `Fase ${index + 1}`;
+      const badgeRaw = stage.badge || 'Badge Púrpura';
+      const parts = badgeRaw.split(' ');
+      const icon = parts[0] || '⭐';
+      const name = parts.slice(1).join(' ') || badgeRaw;
+
+      return `
+        <article class="badge-item ${unlocked ? '' : 'locked'}">
+          ${unlocked ? '<span class="badge-ok">✓</span>' : ''}
+          <div class="badge-phase">${phaseName}</div>
+          <div class="badge-icon">${icon}</div>
+          <div class="badge-name">${name}</div>
+          <div class="badge-note">${unlocked ? 'Desbloqueada' : 'Bloqueada até concluir a fase'}</div>
+        </article>
+      `;
+    }).join('');
+
+    return `
+      <section class="intern-card">
+        <div class="intern-head">
+          <div>
+            <h3 style="margin:0;color:var(--vivo-purple-dark)">${intern.name}</h3>
+            <div class="intern-sub">${intern.area} · Início ${intern.startDate}</div>
+          </div>
+          <span class="progress-chip">${intern.progress}% da trilha</span>
+        </div>
+        <div class="bar"><span style="width:${intern.progress}%"></span></div>
+        <div class="intern-sub">${completed}/${stages.length} fases concluídas · ${points} XP estimado</div>
+        <div class="badge-grid">${badgeCards}</div>
+      </section>
+    `;
+  }).join('');
+
+  stats.innerHTML = `
+    <article class="ach-stat"><strong>${totals.interns}</strong><span>Estagiários acompanhados</span></article>
+    <article class="ach-stat"><strong>${totals.unlocked}/${totals.possible}</strong><span>Badges desbloqueadas</span></article>
+    <article class="ach-stat"><strong>${totals.avg}%</strong><span>Média de progresso da trilha</span></article>
+  `;
+
+  let history = [];
+  try {
+    const raw = localStorage.getItem('vivo_conquistas_registro');
+    history = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    history = [];
+  }
+
+  if (!Array.isArray(history) || !history.length) {
+    log.innerHTML = '<div class="log-item">Sem registros recentes. Conclua fases da trilha para registrar novas conquistas.</div>';
+    return;
+  }
+
+  const top = history.slice().sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt)).slice(0, 6);
+  log.innerHTML = top.map(item => `
+    <div class="log-item">
+      <strong style="color:var(--ink)">${item.title}</strong> · +${item.xp} XP · ${new Date(item.completedAt).toLocaleDateString('pt-BR')}
+    </div>
+  `).join('');
+})();
+</script>
+</body>
+</html>

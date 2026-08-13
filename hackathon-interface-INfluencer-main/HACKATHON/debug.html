@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Debug — Verificar Dados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #660099;
+    }
+    h2 {
+      color: #660099;
+      margin-top: 0;
+    }
+    pre {
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .ok { color: green; font-weight: bold; }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<h1>🔍 Debug — Verificar Dados Carregados</h1>
+
+<div class="section">
+  <h2>Dados Carregados?</h2>
+  <p id="status-roles" class="error">❌ Verificando ROLES...</p>
+  <p id="status-users" class="error">❌ Verificando USERS...</p>
+  <p id="status-feedbacks" class="error">❌ Verificando FEEDBACKS...</p>
+  <p id="status-trilha" class="error">❌ Verificando TRILHA_STAGES...</p>
+  <p id="status-calendar" class="error">❌ Verificando CALENDAR_EVENTS...</p>
+  <p id="status-badges" class="error">❌ Verificando BADGES...</p>
+</div>
+
+<div class="section">
+  <h2>Usuário Atual</h2>
+  <pre id="current-user">Carregando...</pre>
+</div>
+
+<div class="section">
+  <h2>BADGES (estrutura)</h2>
+  <pre id="badges-data">Carregando...</pre>
+</div>
+
+<div class="section">
+  <h2>CALENDAR_EVENTS (estrutura)</h2>
+  <pre id="calendar-data">Carregando...</pre>
+</div>
+
+<div class="section">
+  <h2>Console Logs</h2>
+  <pre id="console-logs">Abra DevTools (F12) → Console para ver logs</pre>
+</div>
+
+<div class="section">
+  <h2>Links de Teste</h2>
+  <ul>
+    <li><a href="index.html">✅ Dashboard Influencer</a></li>
+    <li><a href="estagiario-dashboard.html">✅ Dashboard Estagiário</a></li>
+    <li><a href="feedbacks.html">💬 Feedbacks</a></li>
+    <li><a href="calendario.html">📅 Calendário</a></li>
+    <li><a href="badges.html">🏆 Badges</a></li>
+  </ul>
+</div>
+
+<script src="data.js"></script>
+<script>
+  // Verificar dados
+  document.getElementById('status-roles').innerHTML = 
+    typeof ROLES !== 'undefined' && ROLES.INFLUENCER 
+      ? '<span class="ok">✅ ROLES carregado</span>' 
+      : '<span class="error">❌ ROLES não encontrado</span>';
+
+  document.getElementById('status-users').innerHTML = 
+    typeof USERS !== 'undefined' && Object.keys(USERS).length > 0
+      ? `<span class="ok">✅ USERS carregado (${Object.keys(USERS).length} usuários)</span>`
+      : '<span class="error">❌ USERS não encontrado</span>';
+
+  document.getElementById('status-feedbacks').innerHTML = 
+    typeof FEEDBACKS !== 'undefined' && FEEDBACKS.length > 0
+      ? `<span class="ok">✅ FEEDBACKS carregado (${FEEDBACKS.length} feedbacks)</span>`
+      : '<span class="error">❌ FEEDBACKS não encontrado</span>';
+
+  document.getElementById('status-trilha').innerHTML = 
+    typeof TRILHA_STAGES !== 'undefined' && TRILHA_STAGES.length > 0
+      ? `<span class="ok">✅ TRILHA_STAGES carregado (${TRILHA_STAGES.length} etapas)</span>`
+      : '<span class="error">❌ TRILHA_STAGES não encontrado</span>';
+
+  document.getElementById('status-calendar').innerHTML = 
+    typeof CALENDAR_EVENTS !== 'undefined' && CALENDAR_EVENTS.length > 0
+      ? `<span class="ok">✅ CALENDAR_EVENTS carregado (${CALENDAR_EVENTS.length} eventos)</span>`
+      : '<span class="error">❌ CALENDAR_EVENTS não encontrado</span>';
+
+  document.getElementById('status-badges').innerHTML = 
+    typeof BADGES !== 'undefined' && BADGES.length > 0
+      ? `<span class="ok">✅ BADGES carregado (${BADGES.length} badges)</span>`
+      : '<span class="error">❌ BADGES não encontrado</span>';
+
+  // Verificar usuário atual
+  if (typeof loadCurrentUser === 'function') {
+    const user = loadCurrentUser();
+    document.getElementById('current-user').textContent = JSON.stringify(user, null, 2);
+  } else {
+    document.getElementById('current-user').textContent = 'Função loadCurrentUser não encontrada';
+  }
+
+  // Mostrar estrutura de BADGES
+  if (typeof BADGES !== 'undefined') {
+    document.getElementById('badges-data').textContent = JSON.stringify(BADGES.slice(0, 2), null, 2) + '\n... (mostrando primeiras 2 badges)';
+  }
+
+  // Mostrar estrutura de CALENDAR_EVENTS
+  if (typeof CALENDAR_EVENTS !== 'undefined') {
+    document.getElementById('calendar-data').textContent = JSON.stringify(CALENDAR_EVENTS[0], null, 2);
+  }
+
+  console.log('✅ ROLES:', ROLES);
+  console.log('✅ USERS:', USERS);
+  console.log('✅ FEEDBACKS:', FEEDBACKS);
+  console.log('✅ TRILHA_STAGES:', TRILHA_STAGES);
+  console.log('✅ CALENDAR_EVENTS:', CALENDAR_EVENTS);
+  console.log('✅ BADGES:', BADGES);
+</script>
+
+</body>
+</html>

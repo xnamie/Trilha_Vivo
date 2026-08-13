@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedbacks · Programa Influencer Vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main" style="min-height:100vh;">
+  <header class="topbar">
+    <button class="icon-btn" aria-label="Notificações">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/>
+      </svg>
+      <span class="dot-badge">0</span>
+    </button>
+    <button id="roleToggleBtn" class="icon-btn role-toggle-btn" aria-label="Alternar perfil" title="Clique para alternar entre Influencer e Estagiário">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+      </svg>
+      <span class="role-label" style="font-size:11px;margin-left:4px;">Influencer</span>
+    </button>
+    <div class="user-chip">
+      <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avFeedback" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avFeedback)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">M</text></svg>
+      <div class="u-meta">
+        <div class="u-name">Olá, Mariana!</div>
+        <div class="u-role">Influencer | Vivo</div>
+      </div>
+    </div>
+  </header>
+  <main class="content">
+    <section class="feedback-page" data-section="feedbacks">
+      <div class="feedback-page-head">
+        <div>
+          <span class="feedback-kicker">Acompanhamento contínuo</span>
+          <h1 id="feedbackPageTitle">Feedback</h1>
+          <p id="feedbackPageDesc">Registre feedbacks frequentes para estagiários e acompanhe o histórico da jornada.</p>
+        </div>
+        <div class="feedback-head-actions">
+          <span class="feedback-role-badge" id="feedbackRoleBadge">Influencer</span>
+          <span class="feedback-count-chip">Registros: <strong id="feedbackCountChip">0</strong></span>
+          <a id="feedbackBackLink" class="btn btn-secondary" href="index.html">Voltar ao Dashboard</a>
+        </div>
+      </div>
+
+      <div class="feedback-layout section-gap">
+        <article class="card feedback-compose" id="feedbackComposeCard">
+          <div class="panel-head"><h3>Novo feedback</h3></div>
+          <form id="feedbackForm" class="feedback-form" autocomplete="off">
+            <label for="feedbackTo">Estagiário</label>
+            <select id="feedbackTo" required>
+              <option value="">Selecione um estagiário</option>
+            </select>
+
+            <label for="feedbackCategory">Categoria</label>
+            <select id="feedbackCategory" required>
+              <option value="">Selecione</option>
+              <option value="Progresso">Progresso</option>
+              <option value="Soft Skills">Soft Skills</option>
+              <option value="Técnico">Técnico</option>
+              <option value="Comportamento">Comportamento</option>
+            </select>
+
+            <label for="feedbackRating">Avaliação</label>
+            <select id="feedbackRating" required>
+              <option value="">Selecione</option>
+              <option value="1">1 - Precisa evoluir</option>
+              <option value="2">2 - Abaixo do esperado</option>
+              <option value="3">3 - Bom</option>
+              <option value="4">4 - Muito bom</option>
+              <option value="5">5 - Excelente</option>
+            </select>
+
+            <label for="feedbackText">Comentário</label>
+            <textarea id="feedbackText" rows="5" maxlength="500" placeholder="Escreva um feedback claro, objetivo e acionável." required></textarea>
+
+            <button class="btn btn-primary" type="submit">Enviar feedback</button>
+          </form>
+        </article>
+
+        <article class="card feedback-history">
+          <div class="panel-head">
+            <h3>Histórico</h3>
+            <select id="feedbackFilterTo" class="feedback-filter">
+              <option value="all">Todos os estagiários</option>
+            </select>
+          </div>
+          <div id="feedbackEmptyState" class="feedback-empty" style="display:none;">Nenhum feedback para exibir.</div>
+          <div id="feedbackList" class="feedback-log"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
