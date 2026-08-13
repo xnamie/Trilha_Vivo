@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Inicial · Programa Influencer Vivo</title>
+<title>Página Inicial · Programa Influencer Vivo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
   <!-- ============== SIDEBAR ============== -->
   <aside class="sidebar">
     <div class="brand">
-      <svg class="vivinho" style="color:var(--vivo-purple)"><use href="#vivinho"/></svg>
+      <img class="vivinho" src="../../vivologo-freelogovectors.net_.png" alt="Logo Vivo">
       <div class="brand-txt">
         <span class="wordmark">vivo</span>
         <span class="brand-sub">Influencer</span>
@@ -55,14 +55,13 @@
     </div>
 
     <nav class="nav">
-      <a class="nav-item active" href="index.html"><svg><use href="#i-home"/></svg> Dashboard Inicial</a>
-      <a class="nav-item" href="gestao-estagiarios.html"><svg><use href="#i-users"/></svg> Gestão dos Estagiários</a>
-      <a class="nav-item" href="feedbacks.html"><svg><use href="#i-chat"/></svg> Feedback</a>
-      <a class="nav-item" href="calendario.html"><svg><use href="#i-calendar"/></svg> Calendário</a>
-      <a class="nav-item" href="badges.html"><svg><use href="#i-medal"/></svg> Minhas Conquistas</a>
-      <a class="nav-item" href="plano-desenvolvimento.html"><svg><use href="#i-target"/></svg> Plano de Desenvolvimento</a>
-      <a class="nav-item" href="biblioteca-conteudo.html"><svg><use href="#i-book"/></svg> Biblioteca de Conteúdo</a>
-      <a class="nav-item" href="comunidade.html"><svg><use href="#i-globe"/></svg> Comunidade</a>
+      <a class="nav-item active" href="index.html"><svg><use href="#i-home"/></svg><span class="nav-label">Página Inicial</span></a>
+      <a class="nav-item" href="gestao-estagiarios.html"><svg><use href="#i-users"/></svg><span class="nav-label">Gestão dos Estagiários</span></a>
+      <a class="nav-item" href="feedbacks.html"><svg><use href="#i-chat"/></svg><span class="nav-label">Feedback</span></a>
+      <a class="nav-item" href="calendario.html"><svg><use href="#i-calendar"/></svg><span class="nav-label">Calendário</span></a>
+      <a class="nav-item" href="badges.html"><svg><use href="#i-medal"/></svg><span class="nav-label">Minhas Conquistas</span></a>
+      <a class="nav-item" href="plano-desenvolvimento.html"><svg><use href="#i-target"/></svg><span class="nav-label">Plano de Desenvolvimento</span></a>
+      <a class="nav-item" href="comunidade.html"><svg><use href="#i-globe"/></svg><span class="nav-label">Comunidade</span></a>
     </nav>
 
     <div class="nav-divider"></div>
@@ -93,24 +92,28 @@
   <!-- ============== MAIN ============== -->
   <div class="main">
     <header class="topbar">
+      <button class="icon-btn sidebar-toggle-btn" type="button" aria-expanded="true" aria-label="Recolher menu lateral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="spacer"></div>
       <button class="icon-btn" aria-label="Notificações">
         <svg><use href="#i-bell"/></svg>
         <span class="dot-badge">3</span>
       </button>
-      <!-- BOTÃO TOGGLE INFLUENCER ↔ ESTAGIÁRIO -->
-      <button id="roleToggleBtn" class="icon-btn role-toggle-btn" aria-label="Alternar perfil" title="Clique para alternar entre Influencer e Estagiário">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-        </svg>
-        <span class="role-label" style="font-size:11px;margin-left:4px;">Influencer</span>
-      </button>
-      <div class="user-chip">
-        <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avM)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">M</text></svg>
-        <div class="u-meta">
-          <div class="u-name">Olá, Mariana!</div>
-          <div class="u-role">Influencer | Vivo</div>
+      <div class="user-menu">
+        <button class="user-chip user-menu-btn" type="button" aria-haspopup="menu" aria-expanded="false" title="Abrir menu do perfil">
+          <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avM)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">M</text></svg>
+          <div class="u-meta">
+            <div class="u-name">Olá, Mariana!</div>
+            <div class="u-role">Influencer | Vivo</div>
+          </div>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="user-dropdown" role="menu" aria-label="Menu do perfil">
+          <a class="user-dropdown-item" href="meu-perfil.html" role="menuitem">Meu Perfil</a>
+          <a class="user-dropdown-item" href="configuracao.html" role="menuitem">Configurações</a>
+          <button class="user-dropdown-item" type="button" role="menuitem" data-action="switch-role">Trocar de Perfil</button>
         </div>
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
       </div>
     </header>
 
@@ -127,7 +130,7 @@
             <h2>Você está fazendo a diferença!</h2>
             <p>Seu impacto transforma carreiras e conecta talentos ao futuro.</p>
           </div>
-          <svg class="hero-art" viewBox="0 0 64 64" style="color:#fff"><use href="#vivinho"/></svg>
+          <img class="hero-art" src="../../vivologo-freelogovectors.net_.png" alt="Logo Vivo">
         </div>
       </section>
 
@@ -138,7 +141,7 @@
           <div class="panel-head"><h3>Próximas atividades</h3></div>
           <div class="activity">
             <div class="act-date"><span class="d">22</span><span class="m">Mai</span></div>
-            <div class="act-body"><strong>Check-in semanal</strong><span>João Pedro · Em 2 dias</span></div>
+            <div class="act-body"><strong>Check-in semanal</strong><span>Cláudio · Em 2 dias</span></div>
             <button class="pill-btn">Agendar</button>
           </div>
           <div class="activity">
@@ -148,7 +151,7 @@
           </div>
           <div class="activity">
             <div class="act-ic ic-purple"><svg style="width:22px;height:22px"><use href="#i-target"/></svg></div>
-            <div class="act-body"><strong>Revisar PDI</strong><span>João Pedro · Em 5 dias</span></div>
+            <div class="act-body"><strong>Revisar PDI</strong><span>Cláudio · Em 5 dias</span></div>
             <button class="pill-btn">Acessar</button>
           </div>
           <a href="#" class="card-foot-link">Ver todas as atividades <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
@@ -161,9 +164,9 @@
             <a href="gestao-estagiarios.html" class="card-link">Ver todos <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
           </div>
           <div class="intern">
-            <svg class="avatar" viewBox="0 0 48 48"><defs><linearGradient id="avJ" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0066FF"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="48" height="48" rx="24" fill="url(#avJ)"/><text x="24" y="30" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">JP</text></svg>
+            <svg class="avatar" viewBox="0 0 48 48"><defs><linearGradient id="avC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="48" height="48" rx="24" fill="url(#avC)"/><text x="24" y="30" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">C</text></svg>
             <div class="intern-body">
-              <strong>João Pedro</strong>
+              <strong>Cláudio</strong>
               <span>Marketing</span>
               <span>Início: 03/03/2025</span>
             </div>
@@ -209,7 +212,7 @@
       <!-- Comunidade -->
       <section class="section-gap">
         <div class="community">
-          <svg class="comm-art" viewBox="0 0 64 64" style="color:#fff"><use href="#vivinho"/></svg>
+          <img class="comm-art" src="../../vivologo-freelogovectors.net_.png" alt="Logo Vivo">
           <h3>Participe da comunidade</h3>
           <p>Troque experiências, tire dúvidas e aprenda com outros influencers da Vivo.</p>
           <a class="btn-light" href="comunidade.html">Acessar comunidade <svg width="15" height="15"><use href="#i-arrow"/></svg></a>

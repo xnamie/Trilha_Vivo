@@ -34,13 +34,13 @@ const USERS = {
     intern_count: 2,
     feedback_pending: 2
   },
-  joao: {
+  claudio: {
     id: 'u-002',
-    name: 'João Pedro',
+    name: 'Cláudio',
     role: ROLES.ESTAGIARIO,
-    email: 'joao.pedro@vivo.com.br',
-    avatar: 'JP',
-    initials: 'JP',
+    email: 'claudio@vivo.com.br',
+    avatar: 'C',
+    initials: 'C',
     influencerId: 'u-001', // Mariana é sua influencer
     trilhaProgress: 75,
     level: 'Nível 3',
@@ -75,7 +75,7 @@ const INTERNS_BY_INFLUENCER = {
   'u-001': [ // Interns de Mariana
     {
       id: 'u-002',
-      name: 'João Pedro',
+      name: 'Cláudio',
       area: 'Marketing',
       startDate: '03/03/2025',
       progress: 75,
@@ -101,7 +101,7 @@ const FEEDBACKS = [
   {
     id: 'fb-001',
     fromId: 'u-001', // Mariana (influencer)
-    toId: 'u-002',   // João Pedro (intern)
+    toId: 'u-002',   // Cláudio (intern)
     date: '2026-08-10',
     category: 'Progresso',
     rating: 4,
@@ -123,7 +123,7 @@ const FEEDBACKS = [
   {
     id: 'fb-003',
     fromId: 'u-001', // Mariana
-    toId: 'u-002',   // João Pedro
+    toId: 'u-002',   // Cláudio
     date: '2026-08-05',
     category: 'Técnico',
     rating: 5,
@@ -227,11 +227,11 @@ const CALENDAR_EVENTS = [
   {
     id: 'evt-001',
     date: '2026-08-22',
-    title: 'Check-in com João Pedro',
+    title: 'Check-in com Cláudio',
     description: 'Feedback sobre progresso na trilha',
     time: '14:00',
     duration: 30,
-    interns: ['João Pedro'],
+    interns: ['Cláudio'],
     type: 'normal',
     status: 'agendado'
   },
@@ -260,11 +260,11 @@ const CALENDAR_EVENTS = [
   {
     id: 'evt-004',
     date: '2026-09-02',
-    title: 'Revisão PDI - João Pedro',
+    title: 'Revisão PDI - Cláudio',
     description: 'Análise de Plano de Desenvolvimento Individual',
     time: '11:00',
     duration: 50,
-    interns: ['João Pedro'],
+    interns: ['Cláudio'],
     type: 'success',
     status: 'agendado'
   }
@@ -277,7 +277,7 @@ const ACTIVITIES = [
     id: 'act-001',
     type: 'check-in',
     title: 'Check-in semanal',
-    relatedUser: 'João Pedro',
+    relatedUser: 'Cláudio',
     date: '2026-08-22',
     daysUntil: 2,
     status: 'agendado',
@@ -299,7 +299,7 @@ const ACTIVITIES = [
     id: 'act-003',
     type: 'pdi',
     title: 'Revisar PDI',
-    relatedUser: 'João Pedro',
+    relatedUser: 'Cláudio',
     daysUntil: 5,
     status: 'agendado',
     icon: '🎯',

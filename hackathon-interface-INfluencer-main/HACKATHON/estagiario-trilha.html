@@ -37,12 +37,12 @@
   </defs>
 </svg>
 
-<div class="app">
+<div class="app app-estagiario">
 
   <!-- ============== SIDEBAR ============== -->
   <aside class="sidebar">
     <div class="brand">
-      <svg class="vivinho" style="color:var(--vivo-purple)"><use href="#vivinho"/></svg>
+      <img class="vivinho" src="../../vivologo-freelogovectors.net_.png" alt="Logo Vivo">
       <div class="brand-txt">
         <span class="wordmark">vivo</span>
         <span class="brand-sub">Estagiário</span>
@@ -50,13 +50,12 @@
     </div>
 
     <nav class="nav">
-      <a class="nav-item" href="estagiario-dashboard.html"><svg><use href="#i-home"/></svg> Dashboard Inicial</a>
-      <a class="nav-item active" href="estagiario-trilha.html"><svg><use href="#i-trail"/></svg> Minha Trilha</a>
-      <a class="nav-item" href="feedbacks.html"><svg><use href="#i-chat"/></svg> Meus Feedbacks</a>
-      <a class="nav-item" href="badges.html"><svg><use href="#i-medal"/></svg> Minhas Conquistas</a>
-      <a class="nav-item" href="plano-desenvolvimento.html"><svg><use href="#i-target"/></svg> Meu Plano de Desenvolvimento</a>
-      <a class="nav-item" href="biblioteca-conteudo.html"><svg><use href="#i-book"/></svg> Materiais de Aprendizado</a>
-      <a class="nav-item" href="comunidade.html"><svg><use href="#i-globe"/></svg> Comunidade de Estagiários</a>
+      <a class="nav-item" href="estagiario-dashboard.html"><svg><use href="#i-home"/></svg><span class="nav-label">Página Inicial</span></a>
+      <a class="nav-item active" href="estagiario-trilha.html"><svg><use href="#i-trail"/></svg><span class="nav-label">Minha Trilha</span></a>
+      <a class="nav-item" href="feedbacks.html"><svg><use href="#i-chat"/></svg><span class="nav-label">Meus Feedbacks</span></a>
+      <a class="nav-item" href="badges.html"><svg><use href="#i-medal"/></svg><span class="nav-label">Minhas Conquistas</span></a>
+      <a class="nav-item" href="plano-desenvolvimento.html"><svg><use href="#i-target"/></svg><span class="nav-label">Meu Plano de Desenvolvimento</span></a>
+      <a class="nav-item" href="comunidade.html"><svg><use href="#i-globe"/></svg><span class="nav-label">Comunidade de Estagiários</span></a>
     </nav>
 
     <div class="nav-divider"></div>
@@ -88,24 +87,28 @@
   <!-- ============== MAIN ============== -->
   <div class="main">
     <header class="topbar">
+      <button class="icon-btn sidebar-toggle-btn" type="button" aria-expanded="true" aria-label="Recolher menu lateral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="spacer"></div>
       <button class="icon-btn" aria-label="Notificações">
         <svg><use href="#i-bell"/></svg>
         <span class="dot-badge">2</span>
       </button>
-      <!-- BOTÃO TOGGLE INFLUENCER ↔ ESTAGIÁRIO -->
-      <button id="roleToggleBtn" class="icon-btn role-toggle-btn" aria-label="Alternar perfil" title="Clique para alternar entre Estagiário e Influencer">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-        </svg>
-        <span class="role-label" style="font-size:11px;margin-left:4px;">Estagiário</span>
-      </button>
-      <div class="user-chip">
-        <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avJP2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0066FF"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avJP2)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">JP</text></svg>
-        <div class="u-meta">
-          <div class="u-name">Olá, João Pedro!</div>
-          <div class="u-role">Estagiário | Vivo</div>
+      <div class="user-menu">
+        <button class="user-chip user-menu-btn" type="button" aria-haspopup="menu" aria-expanded="false" title="Abrir menu do perfil">
+          <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avCTrilha" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avCTrilha)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">C</text></svg>
+          <div class="u-meta">
+            <div class="u-name">Olá, Cláudio!</div>
+            <div class="u-role">Estagiário | Vivo</div>
+          </div>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="user-dropdown" role="menu" aria-label="Menu do perfil">
+          <a class="user-dropdown-item" href="meu-perfil.html" role="menuitem">Meu Perfil</a>
+          <a class="user-dropdown-item" href="configuracao.html" role="menuitem">Configurações</a>
+          <button class="user-dropdown-item" type="button" role="menuitem" data-action="switch-role">Trocar de Perfil</button>
         </div>
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
       </div>
     </header>
 
@@ -124,24 +127,24 @@
         </div>
       </div>
 
-      <!-- SVG PATH VISUALIZATION -->
-      <svg class="path-svg" id="pathSvg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="pathGradBg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#EAE3F2" stop-opacity="0.4"/>
-            <stop offset="1" stop-color="#EAE3F2" stop-opacity="0.1"/>
-          </linearGradient>
-          <linearGradient id="pathGradFg" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#660099"/>
-            <stop offset="1" stop-color="#BC4AFF"/>
-          </linearGradient>
-        </defs>
-        <path id="pathBg" stroke="url(#pathGradBg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path id="pathFg" stroke="url(#pathGradFg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke-dashoffset 0.3s ease"/>
-      </svg>
-
       <!-- TRAIL NODES -->
-      <div class="trail" id="trail"></div>
+      <div class="trail" id="trail">
+        <!-- SVG PATH VISUALIZATION -->
+        <svg class="path-svg" id="pathSvg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="pathGradBg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#EAE3F2" stop-opacity="0.4"/>
+              <stop offset="1" stop-color="#EAE3F2" stop-opacity="0.1"/>
+            </linearGradient>
+            <linearGradient id="pathGradFg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#660099"/>
+              <stop offset="1" stop-color="#BC4AFF"/>
+            </linearGradient>
+          </defs>
+          <path id="pathBg" stroke="url(#pathGradBg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="pathFg" stroke="url(#pathGradFg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transition:stroke-dashoffset 0.3s ease"/>
+        </svg>
+      </div>
 
       <!-- FINISH BADGE -->
       <div class="finish-badge" id="finishBadge">

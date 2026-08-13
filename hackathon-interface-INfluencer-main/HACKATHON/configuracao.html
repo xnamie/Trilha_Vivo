@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurações · Programa Influencer Vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .config-wrap{max-width:900px;margin:26px auto;display:grid;gap:14px}
+  .config-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:22px;box-shadow:var(--shadow-sm)}
+  .config-title{margin:0;color:var(--vivo-purple-dark)}
+  .config-note{margin-top:8px;color:var(--ink-soft);line-height:1.6}
+  .config-list{margin-top:14px;display:grid;gap:10px}
+  .config-row{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:12px}
+  .config-row span{color:var(--ink-soft);font-size:13px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--vivo-purple);padding:6px 9px;border-radius:999px}
+</style>
+</head>
+<body>
+<div class="main" style="min-height:100vh;">
+  <header class="topbar">
+    <a class="btn btn-secondary" href="index.html">Voltar à Página Inicial</a>
+    <div class="spacer"></div>
+    <div class="user-menu">
+      <button class="user-chip user-menu-btn" type="button" aria-haspopup="menu" aria-expanded="false" title="Abrir menu do perfil">
+        <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avCfg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avCfg)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">M</text></svg>
+        <div class="u-meta"><div class="u-name">Olá, Mariana!</div><div class="u-role">Influencer | Vivo</div></div>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="user-dropdown" role="menu" aria-label="Menu do perfil">
+        <a class="user-dropdown-item" href="meu-perfil.html" role="menuitem">Meu Perfil</a>
+        <a class="user-dropdown-item" href="configuracao.html" role="menuitem">Configurações</a>
+        <button class="user-dropdown-item" type="button" role="menuitem" data-action="switch-role">Trocar de Perfil</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="config-wrap">
+      <article class="config-card">
+        <h1 class="config-title">Configurações da Conta</h1>
+        <p class="config-note">Gerencie preferências da plataforma, notificações e opções de privacidade do Programa Influencer Vivo.</p>
+        <div class="config-list">
+          <div class="config-row"><div><strong>Notificações por e-mail</strong><span>Receber avisos sobre feedbacks e entregas</span></div><span class="tag">Ativo</span></div>
+          <div class="config-row"><div><strong>Lembretes de calendário</strong><span>Alertas de check-ins e revisões de PDI</span></div><span class="tag">Ativo</span></div>
+          <div class="config-row"><div><strong>Visibilidade de perfil</strong><span>Exibir progresso para sua influencer</span></div><span class="tag">Ativo</span></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -83,10 +83,9 @@
 
   function updateToggleDisplay() {
     const currentRole = getCurrentRole();
-    const roleLabel = document.querySelector('.role-label');
-    if (roleLabel) {
+    document.querySelectorAll('.role-label').forEach(roleLabel => {
       roleLabel.textContent = currentRole === ROLE_INFLUENCER ? 'Influencer' : 'Estagiário';
-    }
+    });
   }
 
   function applyRoleRouteGuard() {
@@ -106,10 +105,7 @@
   ensureUserIdForRole(getCurrentRole());
   updateToggleDisplay();
 
-  const toggleBtn = document.getElementById('roleToggleBtn');
-  if (!toggleBtn) return;
-
-  toggleBtn.addEventListener('click', () => {
+  function switchRoleWithConfirm() {
     const currentRole = getCurrentRole();
     const newRole = currentRole === ROLE_INFLUENCER ? ROLE_ESTAGIARIO : ROLE_INFLUENCER;
     const accepted = window.confirm(
@@ -123,7 +119,13 @@
     const currentPage = getCurrentPage();
     const targetPage = getTargetPageForRole(newRole, currentPage);
     window.location.href = targetPage;
-  });
+  }
+
+  window.switchRole = switchRoleWithConfirm;
+
+  const toggleBtn = document.getElementById('roleToggleBtn');
+  if (!toggleBtn) return;
+  toggleBtn.addEventListener('click', switchRoleWithConfirm);
 })();
 
 /* ---------------------------------------------------------
@@ -988,6 +990,109 @@
   if (avatarText && user) {
     avatarText.textContent = user.initials || user.avatar || user.name.slice(0, 1).toUpperCase();
   }
+})();
+
+/* ---------------------------------------------------------
+   7.5) SIDEBAR RESPONSIVA — Recolher/expandir
+   --------------------------------------------------------- */
+(function initSidebarToggle(){
+  const app = document.querySelector('.app');
+  const sidebar = document.querySelector('.sidebar');
+  const toggleButtons = document.querySelectorAll('.sidebar-toggle-btn');
+  if(!app || !sidebar || !toggleButtons.length) return;
+
+  const STORAGE_KEY = 'vivo_sidebar_collapsed';
+  const media = window.matchMedia('(max-width: 1024px)');
+
+  function setCollapsed(collapsed){
+    app.classList.toggle('sidebar-collapsed', collapsed);
+    toggleButtons.forEach(btn => {
+      btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.setAttribute('aria-label', collapsed ? 'Expandir menu lateral' : 'Recolher menu lateral');
+    });
+  }
+
+  function resolveInitialState(){
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if(saved === 'true') return true;
+    if(saved === 'false') return false;
+    return media.matches;
+  }
+
+  setCollapsed(resolveInitialState());
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const collapsed = !app.classList.contains('sidebar-collapsed');
+      setCollapsed(collapsed);
+      localStorage.setItem(STORAGE_KEY, String(collapsed));
+    });
+  });
+})();
+
+/* ---------------------------------------------------------
+   7.6) MENU DE PERFIL — Dropdown + ações
+   --------------------------------------------------------- */
+(function initUserMenu(){
+  const menus = document.querySelectorAll('.user-menu');
+  if(!menus.length) return;
+
+  function closeAll(){
+    menus.forEach(menu => {
+      menu.classList.remove('open');
+      const btn = menu.querySelector('.user-menu-btn');
+      if(btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  menus.forEach(menu => {
+    const btn = menu.querySelector('.user-menu-btn');
+    const roleAction = menu.querySelector('[data-action="switch-role"]');
+    const profileLink = menu.querySelector('a[href="meu-perfil.html"]');
+    const settingsLink = menu.querySelector('a[href="configuracao.html"]');
+    const dropdown = menu.querySelector('.user-dropdown');
+    if(!btn) return;
+
+    if(profileLink) profileLink.textContent = 'Meu Perfil';
+    if(settingsLink) settingsLink.textContent = 'Configurações';
+    if(roleAction) roleAction.textContent = 'Trocar de Perfil';
+    if(dropdown && profileLink && settingsLink && roleAction){
+      dropdown.appendChild(profileLink);
+      dropdown.appendChild(settingsLink);
+      dropdown.appendChild(roleAction);
+    }
+
+    btn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const isOpen = menu.classList.contains('open');
+      closeAll();
+      if(!isOpen){
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    if(roleAction){
+      roleAction.addEventListener('click', () => {
+        closeAll();
+        if(typeof window.switchRole === 'function'){
+          window.switchRole();
+        }
+      });
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if(!event.target.closest('.user-menu')){
+      closeAll();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape'){
+      closeAll();
+    }
+  });
 })();
 
 /* ---------------------------------------------------------
