@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Inicial · Estagiário · Programa Influencer Vivo</title>
+<title>Página Inicial · Estagiário · Programa Influencer Vivo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,12 +39,12 @@
   </defs>
 </svg>
 
-<div class="app">
+<div class="app app-estagiario">
 
   <!-- ============== SIDEBAR ============== -->
   <aside class="sidebar">
     <div class="brand">
-      <svg class="vivinho" style="color:var(--vivo-purple)"><use href="#vivinho"/></svg>
+      <img class="vivinho" src="../../vivologo-freelogovectors.net_.png" alt="Logo Vivo">
       <div class="brand-txt">
         <span class="wordmark">vivo</span>
         <span class="brand-sub">Estagiário</span>
@@ -52,13 +52,12 @@
     </div>
 
     <nav class="nav">
-      <a class="nav-item active" href="estagiario-dashboard.html"><svg><use href="#i-home"/></svg> Dashboard Inicial</a>
-      <a class="nav-item" href="estagiario-trilha.html"><svg><use href="#i-trail"/></svg> Minha Trilha</a>
-      <a class="nav-item" href="feedbacks.html"><svg><use href="#i-chat"/></svg> Meus Feedbacks</a>
-      <a class="nav-item" href="badges.html"><svg><use href="#i-medal"/></svg> Minhas Conquistas</a>
-      <a class="nav-item" href="plano-desenvolvimento.html"><svg><use href="#i-target"/></svg> Meu Plano de Desenvolvimento</a>
-      <a class="nav-item" href="biblioteca-conteudo.html"><svg><use href="#i-book"/></svg> Materiais de Aprendizado</a>
-      <a class="nav-item" href="comunidade.html"><svg><use href="#i-globe"/></svg> Comunidade de Estagiários</a>
+      <a class="nav-item active" href="estagiario-dashboard.html"><svg><use href="#i-home"/></svg><span class="nav-label">Página Inicial</span></a>
+      <a class="nav-item" href="estagiario-trilha.html"><svg><use href="#i-trail"/></svg><span class="nav-label">Minha Trilha</span></a>
+      <a class="nav-item" href="feedbacks.html"><svg><use href="#i-chat"/></svg><span class="nav-label">Meus Feedbacks</span></a>
+      <a class="nav-item" href="badges.html"><svg><use href="#i-medal"/></svg><span class="nav-label">Minhas Conquistas</span></a>
+      <a class="nav-item" href="plano-desenvolvimento.html"><svg><use href="#i-target"/></svg><span class="nav-label">Meu Plano de Desenvolvimento</span></a>
+      <a class="nav-item" href="comunidade.html"><svg><use href="#i-globe"/></svg><span class="nav-label">Comunidade de Estagiários</span></a>
     </nav>
 
     <div class="nav-divider"></div>
@@ -90,24 +89,28 @@
   <!-- ============== MAIN ============== -->
   <div class="main">
     <header class="topbar">
+      <button class="icon-btn sidebar-toggle-btn" type="button" aria-expanded="true" aria-label="Recolher menu lateral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="spacer"></div>
       <button class="icon-btn" aria-label="Notificações">
         <svg><use href="#i-bell"/></svg>
         <span class="dot-badge">2</span>
       </button>
-      <!-- BOTÃO TOGGLE INFLUENCER ↔ ESTAGIÁRIO -->
-      <button id="roleToggleBtn" class="icon-btn role-toggle-btn" aria-label="Alternar perfil" title="Clique para alternar entre Estagiário e Influencer">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
-        </svg>
-        <span class="role-label" style="font-size:11px;margin-left:4px;">Estagiário</span>
-      </button>
-      <div class="user-chip">
-        <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avJP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0066FF"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avJP)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">JP</text></svg>
-        <div class="u-meta">
-          <div class="u-name">Olá, João Pedro!</div>
-          <div class="u-role">Estagiário | Vivo</div>
+      <div class="user-menu">
+        <button class="user-chip user-menu-btn" type="button" aria-haspopup="menu" aria-expanded="false" title="Abrir menu do perfil">
+          <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avC)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">C</text></svg>
+          <div class="u-meta">
+            <div class="u-name">Olá, Cláudio!</div>
+            <div class="u-role">Estagiário | Vivo</div>
+          </div>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="user-dropdown" role="menu" aria-label="Menu do perfil">
+          <a class="user-dropdown-item" href="meu-perfil.html" role="menuitem">Meu Perfil</a>
+          <a class="user-dropdown-item" href="configuracao.html" role="menuitem">Configurações</a>
+          <button class="user-dropdown-item" type="button" role="menuitem" data-action="switch-role">Trocar de Perfil</button>
         </div>
-        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
       </div>
     </header>
 
@@ -116,43 +119,15 @@
       <!-- Saudação + banner herói -->
       <section class="head-row">
         <div class="greeting">
-          <h1>Bem-vindo, João Pedro! 🚀</h1>
+          <h1>Bem-vindo, Cláudio! 🚀</h1>
           <p>Sua jornada de aprendizado está apenas começando! Acompanhe seu progresso, complete os desafios e destaque-se como um talento Vivo.</p>
         </div>
-        <div class="hero-banner" style="background:linear-gradient(135deg, var(--vivo-blue), var(--vivo-purple-light))">
+        <div class="hero-banner" style="background:linear-gradient(135deg, var(--vivo-purple-dark), var(--vivo-purple), var(--vivo-purple-light))">
           <div class="hero-copy">
             <h2>Você está no caminho certo!</h2>
             <p>Cada etapa concluída o aproxima de novas oportunidades.</p>
           </div>
-          <svg class="hero-art" viewBox="0 0 64 64" style="color:#fff"><use href="#vivinho"/></svg>
-        </div>
-      </section>
-
-      <!-- Cards de estatística (Estagiário) -->
-      <section class="stat-grid section-gap">
-        <div class="card stat-card">
-          <div class="stat-ic ic-blue"><svg><use href="#i-trail"/></svg></div>
-          <div class="stat-num">75%</div>
-          <div class="stat-label">Progresso da trilha</div>
-          <a href="estagiario-trilha.html" class="card-link">Continuar <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
-        </div>
-        <div class="card stat-card">
-          <div class="stat-ic ic-pink"><svg><use href="#i-calendar"/></svg></div>
-          <div class="stat-num">2</div>
-          <div class="stat-label">Dias até entrega</div>
-          <a href="#" class="card-link">Ver entrega <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
-        </div>
-        <div class="card stat-card">
-          <div class="stat-ic ic-lime"><svg><use href="#i-chat"/></svg></div>
-          <div class="stat-num">1</div>
-          <div class="stat-label">Feedback não lido</div>
-          <a href="feedbacks.html" class="card-link">Ler agora <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
-        </div>
-        <div class="card stat-card">
-          <div class="stat-ic ic-purple"><svg><use href="#i-medal"/></svg></div>
-          <div class="stat-num">420 XP</div>
-          <div class="stat-label">Pontos acumulados</div>
-          <a href="badges.html" class="card-link">Ver badges <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
+          <img class="hero-art" src="../../vivologo-freelogovectors.net_.png" alt="Logo Vivo">
         </div>
       </section>
 
@@ -225,7 +200,7 @@
       <!-- Seção Comunidade -->
       <section class="section-gap">
         <div class="community">
-          <svg class="comm-art" viewBox="0 0 64 64" style="color:#fff"><use href="#vivinho"/></svg>
+          <img class="comm-art" src="../../vivologo-freelogovectors.net_.png" alt="Logo Vivo">
           <h3>Conecte-se com outros estagiários</h3>
           <p>Compartilhe experiências, tire dúvidas e aprenda com seus colegas de jornada no Programa Influencer Vivo.</p>
           <a class="btn-light" href="comunidade.html">Acessar comunidade <svg width="15" height="15"><use href="#i-arrow"/></svg></a>

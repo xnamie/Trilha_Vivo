@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Perfil · Programa Influencer Vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .profile-wrap{max-width:920px;margin:26px auto;display:grid;gap:16px}
+  .profile-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);padding:24px;box-shadow:var(--shadow-sm)}
+  .profile-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .profile-avatar{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid rgba(102,0,153,.18)}
+  .profile-name{font-size:24px;color:var(--vivo-purple-dark);margin:0}
+  .profile-role{color:var(--ink-soft);margin-top:4px}
+  .profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+  .profile-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);padding:12px}
+  .profile-item strong{display:block;color:var(--vivo-purple-dark);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  .profile-item span{display:block;margin-top:6px;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="main" style="min-height:100vh;">
+  <header class="topbar">
+    <a class="btn btn-secondary" href="index.html">Voltar à Página Inicial</a>
+    <div class="spacer"></div>
+    <div class="user-menu">
+      <button class="user-chip user-menu-btn" type="button" aria-haspopup="menu" aria-expanded="false" title="Abrir menu do perfil">
+        <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avPerfil" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avPerfil)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">M</text></svg>
+        <div class="u-meta"><div class="u-name">Olá, Mariana!</div><div class="u-role">Influencer | Vivo</div></div>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="user-dropdown" role="menu" aria-label="Menu do perfil">
+        <a class="user-dropdown-item" href="meu-perfil.html" role="menuitem">Meu Perfil</a>
+        <a class="user-dropdown-item" href="configuracao.html" role="menuitem">Configurações</a>
+        <button class="user-dropdown-item" type="button" role="menuitem" data-action="switch-role">Trocar de Perfil</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="profile-wrap">
+      <article class="profile-card">
+        <div class="profile-head">
+          <svg class="profile-avatar" viewBox="0 0 80 80" style="width:80px;height:80px;"><defs><linearGradient id="avCProfile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="80" height="80" rx="40" fill="url(#avCProfile)"/><text x="40" y="56" font-family="Poppins" font-size="28" font-weight="600" fill="#fff" text-anchor="middle">C</text></svg>
+          <div>
+            <h1 class="profile-name">Cláudio</h1>
+            <div class="profile-role">Estagiário | Programa Influencer Vivo</div>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-item"><strong>E-mail</strong><span>claudio@vivo.com.br</span></div>
+          <div class="profile-item"><strong>Influencer</strong><span>Mariana</span></div>
+          <div class="profile-item"><strong>Nível</strong><span>Nível 3</span></div>
+          <div class="profile-item"><strong>Pontos</strong><span>420 XP</span></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

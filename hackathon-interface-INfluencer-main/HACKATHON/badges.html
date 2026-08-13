@@ -39,8 +39,23 @@
 <body>
 <div class="main" style="min-height:100vh;">
   <header class="topbar">
-    <a class="btn btn-secondary" href="index.html">Voltar ao Dashboard</a>
-    <a class="btn btn-secondary" href="gestao-estagiarios.html">Gestão dos Estagiários</a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a class="btn btn-secondary" href="index.html">Voltar ao Dashboard</a>
+      <a class="btn btn-secondary" href="gestao-estagiarios.html">Gestão dos Estagiários</a>
+    </div>
+    <div class="spacer"></div>
+    <div class="user-menu">
+      <button class="user-chip user-menu-btn" type="button" aria-haspopup="menu" aria-expanded="false" title="Abrir menu do perfil">
+        <svg class="avatar" viewBox="0 0 44 44" aria-hidden="true"><defs><linearGradient id="avBadge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#660099"/><stop offset="1" stop-color="#BC4AFF"/></linearGradient></defs><rect width="44" height="44" rx="22" fill="url(#avBadge)"/><text x="22" y="28" font-family="Poppins" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">M</text></svg>
+        <div class="u-meta"><div class="u-name">Olá, Mariana!</div><div class="u-role">Influencer | Vivo</div></div>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="user-dropdown" role="menu" aria-label="Menu do perfil">
+        <a class="user-dropdown-item" href="meu-perfil.html" role="menuitem">Meu Perfil</a>
+        <a class="user-dropdown-item" href="configuracao.html" role="menuitem">Configurações</a>
+        <button class="user-dropdown-item" type="button" role="menuitem" data-action="switch-role">Trocar de Perfil</button>
+      </div>
+    </div>
   </header>
   <main class="content">
     <section class="ach-wrap">
